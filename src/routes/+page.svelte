@@ -99,15 +99,15 @@
 			max="1024"
 			oninput={(event) => {
 				let inputValue = event.currentTarget.valueAsNumber;
-				if (this.value === '') {
+				if (isNaN(inputValue)) {
 					return;
 				}
 
-				if (this.value >= 1024) {
-					this.value = 1024;
+				if (inputValue >= 1024) {
+					inputValue = 1024;
 				}
 				let old_poppers = poppers;
-				poppers = this.value;
+				poppers = inputValue;
 
 				if (poppers > counts.length) {
 					for (let i = Number(old_poppers) + 1; i <= poppers; i++) {
