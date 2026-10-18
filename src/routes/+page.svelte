@@ -173,6 +173,9 @@
 					popToggle: 0
 				}
 			];
+
+			let inputElement = document.getElementsByTagName("input")[0];
+			inputElement.valueAsNumber = 1;
 		}}
 		class="button"
 	>
@@ -192,11 +195,11 @@
 		--pop-toggle: 0;
 	}
 
-	body {
+	/* body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
+	} */
 	.pops {
 		display: flex;
 		flex-direction: row-reverse;
