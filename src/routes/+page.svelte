@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/env';
+	import { asset } from '$app/paths';
 
 	let poppers = $state(1);
 	let counts = $state([
@@ -11,7 +12,7 @@
 	]);
 
 	function playSound() {
-		let popSound = browser ? new Audio('src/pop.mp3') : null;
+		let popSound = browser ? new Audio(asset("audio/pop.mp3")) : null;
 		popSound.play();
 	}
 
@@ -88,7 +89,7 @@
 
 <div class="text">
 	<h1>Binary Poppers!</h1>
-	<br>
+	<br />
 	<p>
 		Number of poppers:
 		<input
@@ -96,7 +97,8 @@
 			defaultValue="1"
 			min="1"
 			max="1024"
-			oninput={() => {
+			oninput={(event) => {
+				let inputValue = event.currentTarget.valueAsNumber;
 				if (this.value === '') {
 					return;
 				}
@@ -141,7 +143,7 @@
 		</button>
 	{/each}
 </div>
-<br>
+<br />
 <div class="text" id="content">
 	<div class="calculate">
 		<div>
@@ -159,7 +161,7 @@
 			<p class="number">{countHexa()}</p>
 		</div>
 	</div>
-	<br>
+	<br />
 	<button
 		type="button"
 		onclick={() => {
@@ -262,6 +264,4 @@
 	.button:active {
 		transform: translateY(1px);
 	}
-
-
 </style>
